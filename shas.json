@@ -1,0 +1,293 @@
+{
+  "sedarim": [
+    {
+      "name": "Zeraim",
+      "massekhtot": [
+        {
+          "name": "Berakhot",
+          "hebrewName": "ברכות",
+          "amudim": 125,
+          "dappim": 64,
+          "range": "2a-64a"
+        }
+      ]
+    },
+    {
+      "name": "Moed",
+      "massekhtot": [
+        {
+          "name": "Shabbat",
+          "hebrewName": "שבת",
+          "amudim": 312,
+          "dappim": 157,
+          "range": "2a-157b"
+        },
+        {
+          "name": "Eruvin",
+          "hebrewName": "עירובין",
+          "amudim": 207,
+          "dappim": 105,
+          "range": "2a-105a"
+        },
+        {
+          "name": "Pesachim",
+          "hebrewName": "פסחים",
+          "amudim": 240,
+          "dappim": 121,
+          "range": "2a-121b"
+        },
+        {
+          "name": "Rosh Hashanah",
+          "hebrewName": "ראש השנה",
+          "amudim": 67,
+          "dappim": 35,
+          "range": "2a-35a"
+        },
+        {
+          "name": "Yoma",
+          "hebrewName": "יומא",
+          "amudim": 173,
+          "dappim": 88,
+          "range": "2a-88a"
+        },
+        {
+          "name": "Sukkah",
+          "hebrewName": "סוכה",
+          "amudim": 110,
+          "dappim": 56,
+          "range": "2a-56b"
+        },
+        {
+          "name": "Beitzah",
+          "hebrewName": "ביצה",
+          "amudim": 78,
+          "dappim": 40,
+          "range": "2a-40b"
+        },
+        {
+          "name": "Taanit",
+          "hebrewName": "תענית",
+          "amudim": 59,
+          "dappim": 31,
+          "range": "2a-31a"
+        },
+        {
+          "name": "Megillah",
+          "hebrewName": "מגילה",
+          "amudim": 61,
+          "dappim": 32,
+          "range": "2a-32a"
+        },
+        {
+          "name": "Moed Katan",
+          "hebrewName": "מועד קטן",
+          "amudim": 55,
+          "dappim": 29,
+          "range": "2a-29a"
+        },
+        {
+          "name": "Chagigah",
+          "hebrewName": "חגיגה",
+          "amudim": 51,
+          "dappim": 27,
+          "range": "2a-27a"
+        }
+      ]
+    },
+    {
+      "name": "Nashim",
+      "massekhtot": [
+        {
+          "name": "Yevamot",
+          "hebrewName": "יבמות",
+          "amudim": 242,
+          "dappim": 122,
+          "range": "2a-122b"
+        },
+        {
+          "name": "Ketubot",
+          "hebrewName": "כתובות",
+          "amudim": 222,
+          "dappim": 112,
+          "range": "2a-112b"
+        },
+        {
+          "name": "Nedarim",
+          "hebrewName": "נדרים",
+          "amudim": 180,
+          "dappim": 91,
+          "range": "2a-91b"
+        },
+        {
+          "name": "Nazir",
+          "hebrewName": "נזיר",
+          "amudim": 130,
+          "dappim": 66,
+          "range": "2a-66b"
+        },
+        {
+          "name": "Sotah",
+          "hebrewName": "סוטה",
+          "amudim": 96,
+          "dappim": 49,
+          "range": "2a-49b"
+        },
+        {
+          "name": "Gittin",
+          "hebrewName": "גיטין",
+          "amudim": 178,
+          "dappim": 90,
+          "range": "2a-90b"
+        },
+        {
+          "name": "Kiddushin",
+          "hebrewName": "קידושין",
+          "amudim": 162,
+          "dappim": 82,
+          "range": "2a-82b"
+        }
+      ]
+    },
+    {
+      "name": "Nezikin",
+      "massekhtot": [
+        {
+          "name": "Bava Kamma",
+          "hebrewName": "בבא קמא",
+          "amudim": 236,
+          "dappim": 119,
+          "range": "2a-119b"
+        },
+        {
+          "name": "Bava Metzia",
+          "hebrewName": "בבא מציעא",
+          "amudim": 235,
+          "dappim": 119,
+          "range": "2a-119a"
+        },
+        {
+          "name": "Bava Batra",
+          "hebrewName": "בבא בתרא",
+          "amudim": 350,
+          "dappim": 176,
+          "range": "2a-176b"
+        },
+        {
+          "name": "Sanhedrin",
+          "hebrewName": "סנהדרין",
+          "amudim": 224,
+          "dappim": 113,
+          "range": "2a-113b"
+        },
+        {
+          "name": "Makkot",
+          "hebrewName": "מכות",
+          "amudim": 46,
+          "dappim": 24,
+          "range": "2a-24b"
+        },
+        {
+          "name": "Shevuot",
+          "hebrewName": "שבועות",
+          "amudim": 96,
+          "dappim": 49,
+          "range": "2a-49b"
+        },
+        {
+          "name": "Avodah Zarah",
+          "hebrewName": "עבודה זרה",
+          "amudim": 150,
+          "dappim": 76,
+          "range": "2a-76b"
+        },
+        {
+          "name": "Horayot",
+          "hebrewName": "הוריות",
+          "amudim": 25,
+          "dappim": 14,
+          "range": "2a-14a"
+        }
+      ]
+    },
+    {
+      "name": "Kodashim",
+      "massekhtot": [
+        {
+          "name": "Zevachim",
+          "hebrewName": "זבחים",
+          "amudim": 238,
+          "dappim": 120,
+          "range": "2a-120b"
+        },
+        {
+          "name": "Menachot",
+          "hebrewName": "מנחות",
+          "amudim": 217,
+          "dappim": 110,
+          "range": "2a-110a"
+        },
+        {
+          "name": "Chullin",
+          "hebrewName": "חולין",
+          "amudim": 281,
+          "dappim": 142,
+          "range": "2a-142a"
+        },
+        {
+          "name": "Bekhorot",
+          "hebrewName": "בכורות",
+          "amudim": 119,
+          "dappim": 61,
+          "range": "2a-61a"
+        },
+        {
+          "name": "Arakhin",
+          "hebrewName": "ערכין",
+          "amudim": 65,
+          "dappim": 34,
+          "range": "2a-34a"
+        },
+        {
+          "name": "Temurah",
+          "hebrewName": "תמורה",
+          "amudim": 65,
+          "dappim": 34,
+          "range": "2a-34a"
+        },
+        {
+          "name": "Keritot",
+          "hebrewName": "כריתות",
+          "amudim": 54,
+          "dappim": 28,
+          "range": "2a-28b"
+        },
+        {
+          "name": "Meilah",
+          "hebrewName": "מעילה",
+          "amudim": 41,
+          "dappim": 22,
+          "range": "2a-22a"
+        },
+        {
+          "name": "Tamid",
+          "hebrewName": "תמיד",
+          "amudim": 64,
+          "dappim": 33,
+          "range": "2a-33b"
+        }
+      ]
+    },
+    {
+      "name": "Tahorot",
+      "massekhtot": [
+        {
+          "name": "Niddah",
+          "hebrewName": "נדה",
+          "amudim": 143,
+          "dappim": 73,
+          "range": "2a-73a"
+        }
+      ]
+    }
+  ]
+}
