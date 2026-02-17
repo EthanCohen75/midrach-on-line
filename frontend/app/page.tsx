@@ -1,23 +1,39 @@
 import shas from '../../shas.json';
 
+const SEDER_HEBREW: Record<string, string> = {
+  Zeraim: 'סדר זרעים',
+  Moed: 'סדר מועד',
+  Nashim: 'סדר נשים',
+  Nezikin: 'סדר נזיקין',
+  Kodashim: 'סדר קדשים',
+  Tahorot: 'סדר טהרות',
+};
+
 export default function Home() {
   return (
-    <main style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-      <h1>Midrach Online</h1>
-      <p>Étude du Talmud Bavli</p>
+    <>
+      <div className="hero">
+        <img src="/hero.jpeg" alt="" />
+        <div className="hero-overlay">
+          <p className="hero-subtitle">לימוד הש״ס</p>
+        </div>
+      </div>
 
-      {shas.sedarim.map((seder) => (
-        <section key={seder.name} style={{ marginTop: '2rem' }}>
-          <h2>{seder.name}</h2>
-          <ul>
-            {seder.massekhtot.map((m) => (
-              <li key={m.name}>
-                <strong>{m.hebrewName}</strong> — {m.name} ({m.dappim} dappim, {m.range})
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
-    </main>
+      <main className="content">
+        {shas.sedarim.map((seder) => (
+          <section key={seder.name} className="seder-section">
+            <h2 className="seder-title">{SEDER_HEBREW[seder.name] || seder.name}</h2>
+            <div className="massekhtot-grid">
+              {seder.massekhtot.map((m) => (
+                <div key={m.name} className="masekhet-card">
+                  <div className="masekhet-name">{m.hebrewName}</div>
+                  <div className="masekhet-info">{m.dappim} דפים</div>
+                </div>
+              ))}
+            </div>
+          </section>
+        ))}
+      </main>
+    </>
   );
 }

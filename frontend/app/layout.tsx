@@ -1,3 +1,5 @@
+import './globals.css';
+
 export const metadata = {
   title: 'Midrach Online',
   description: 'Étude du Talmud Bavli en ligne',
