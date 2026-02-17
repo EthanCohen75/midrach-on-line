@@ -1,0 +1,183 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Structure du Shas ───
+
+model Seder {
+  id         Int        @id @default(autoincrement())
+  name       String     @unique
+  hebrewName String
+  order      Int
+  massekhtot Masekhet[]
+}
+
+model Masekhet {
+  id         Int     @id @default(autoincrement())
+  sederId    Int
+  seder      Seder   @relation(fields: [sederId], references: [id])
+  name       String  @unique
+  hebrewName String
+  amudim     Int
+  dappim     Int
+  range      String
+  amudList   Amud[]
+  studyPlans StudyPlan[]
+}
+
+model Amud {
+  id            Int      @id @default(autoincrement())
+  masekhetId    Int
+  masekhet      Masekhet @relation(fields: [masekhetId], references: [id])
+  daf           Int
+  side          String   // "a" ou "b"
+  pdfPath       String?
+  segments      AmudSegment[]
+  rashiSegments RashiSegment[]
+  wordEntries   WordEntry[]
+  qcmQuestions  QcmQuestion[]
+  userProgress  UserAmudProgress[]
+  studyPlanLogs StudyPlanLog[]
+
+  @@unique([masekhetId, daf, side])
+}
+
+// ─── Textes ───
+
+model AmudSegment {
+  id            Int             @id @default(autoincrement())
+  amudId        Int
+  amud          Amud            @relation(fields: [amudId], references: [id])
+  position      Int
+  textHe        String
+  rashiSegments RashiSegment[]
+
+  @@unique([amudId, position])
+}
+
+model RashiSegment {
+  id            Int          @id @default(autoincrement())
+  amudId        Int
+  amud          Amud         @relation(fields: [amudId], references: [id])
+  amudSegmentId Int?
+  amudSegment   AmudSegment? @relation(fields: [amudSegmentId], references: [id])
+  line          Int
+  commentIndex  Int
+  textHe        String
+
+  @@unique([amudId, line, commentIndex])
+}
+
+// ─── Lexique ───
+
+model WordEntry {
+  id            Int     @id @default(autoincrement())
+  amudId        Int
+  amud          Amud    @relation(fields: [amudId], references: [id])
+  wordHeb       String
+  translationFr String
+  source        String  // "gemara" ou "rashi"
+  createdById   Int?
+  createdBy     User?   @relation(fields: [createdById], references: [id])
+  status        String  @default("approved")
+}
+
+// ─── QCM ───
+
+model QcmQuestion {
+  id          Int         @id @default(autoincrement())
+  amudId      Int
+  amud        Amud        @relation(fields: [amudId], references: [id])
+  question    String
+  createdById Int?
+  createdBy   User?       @relation("QcmAuthor", fields: [createdById], references: [id])
+  status      String      @default("draft")
+  options     QcmOption[]
+  attempts    QcmAttempt[]
+}
+
+model QcmOption {
+  id        Int         @id @default(autoincrement())
+  questionId Int
+  question  QcmQuestion @relation(fields: [questionId], references: [id])
+  label     String
+  isCorrect Boolean     @default(false)
+  attempts  QcmAttempt[]
+}
+
+// ─── Utilisateurs ───
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  passwordHash String?
+  googleId     String?  @unique
+  displayName  String
+  role         String   @default("user")
+  createdAt    DateTime @default(now())
+  wordEntries  WordEntry[]
+  qcmQuestions QcmQuestion[] @relation("QcmAuthor")
+  qcmAttempts  QcmAttempt[]
+  progress     UserAmudProgress[]
+  studyPlans   StudyPlan[]
+}
+
+// ─── Progression ───
+
+model UserAmudProgress {
+  id             Int       @id @default(autoincrement())
+  userId         Int
+  user           User      @relation(fields: [userId], references: [id])
+  amudId         Int
+  amud           Amud      @relation(fields: [amudId], references: [id])
+  studied        Boolean   @default(false)
+  reviewCount    Int       @default(0)
+  lastReviewedAt DateTime?
+
+  @@unique([userId, amudId])
+}
+
+model QcmAttempt {
+  id             Int         @id @default(autoincrement())
+  userId         Int
+  user           User        @relation(fields: [userId], references: [id])
+  questionId     Int
+  question       QcmQuestion @relation(fields: [questionId], references: [id])
+  chosenOptionId Int
+  chosenOption   QcmOption   @relation(fields: [chosenOptionId], references: [id])
+  isCorrect      Boolean
+  attemptedAt    DateTime    @default(now())
+}
+
+// ─── Programme d'étude ───
+
+model StudyPlan {
+  id            Int       @id @default(autoincrement())
+  userId        Int
+  user          User      @relation(fields: [userId], references: [id])
+  masekhetId    Int
+  masekhet      Masekhet  @relation(fields: [masekhetId], references: [id])
+  startAmudDaf  Int
+  startAmudSide String
+  mode          String    // "rhythm" ou "deadline"
+  amudPerDay    Int?
+  targetDate    DateTime?
+  startDate     DateTime  @default(now())
+  status        String    @default("active")
+  createdAt     DateTime  @default(now())
+  logs          StudyPlanLog[]
+}
+
+model StudyPlanLog {
+  id          Int       @id @default(autoincrement())
+  planId      Int
+  plan        StudyPlan @relation(fields: [planId], references: [id])
+  amudId      Int
+  amud        Amud      @relation(fields: [amudId], references: [id])
+  completedAt DateTime  @default(now())
+}
